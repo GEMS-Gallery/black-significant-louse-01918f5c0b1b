@@ -1,0 +1,25 @@
+type Result_1 = 
+ variant {
+   err: text;
+   ok: Book;
+ };
+type Result = 
+ variant {
+   err: text;
+   ok: text;
+ };
+type Book = 
+ record {
+   author: text;
+   description: text;
+   id: nat;
+   imageUrl: text;
+   price: nat;
+   title: text;
+ };
+service : {
+  getBookDetails: (nat) -> (Result_1) query;
+  getBooks: () -> (vec Book) query;
+  getUserPurchases: (principal) -> (vec nat) query;
+  purchaseBook: (nat) -> (Result);
+}
